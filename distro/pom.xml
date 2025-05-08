@@ -224,6 +224,18 @@
         </dependency>
         <dependency>
             <groupId>org.apache.ranger</groupId>
+            <artifactId>ranger-opensearch-plugin</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ranger</groupId>
+            <artifactId>ranger-opensearch-plugin-shim</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ranger</groupId>
             <artifactId>ranger-ozone-plugin</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
@@ -438,6 +450,7 @@
                                         <descriptor>src/main/assembly/plugin-sqoop.xml</descriptor>
                                         <descriptor>src/main/assembly/plugin-kylin.xml</descriptor>
                                         <descriptor>src/main/assembly/plugin-elasticsearch.xml</descriptor>
+                                        <descriptor>src/main/assembly/plugin-opensearch.xml</descriptor>
                                         <descriptor>src/main/assembly/plugin-schema-registry.xml</descriptor>
                                         <descriptor>src/main/assembly/plugin-presto.xml</descriptor>
                                         <descriptor>src/main/assembly/plugin-trino.xml</descriptor>
@@ -891,6 +904,35 @@
             </build>
         </profile>
         <profile>
+            <id>ranger-opensearch-plugin</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <version>${assembly.plugin.version}</version>
+                        <configuration>
+                            <finalName>ranger-${project.version}</finalName>
+                            <outputDirectory>../target</outputDirectory>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <phase>package</phase>
+                                <configuration>
+                                    <skipAssembly>false</skipAssembly>
+                                    <descriptors>
+                                        <descriptor>src/main/assembly/plugin-opensearch.xml</descriptor>
+                                    </descriptors>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <id>ranger-trino-plugin</id>
             <build>
                 <plugins>
@@ -1023,6 +1065,7 @@
                                         <descriptor>src/main/assembly/plugin-sqoop.xml</descriptor>
                                         <descriptor>src/main/assembly/plugin-kylin.xml</descriptor>
                                         <descriptor>src/main/assembly/plugin-elasticsearch.xml</descriptor>
+                                        <descriptor>src/main/assembly/plugin-opensearch.xml</descriptor>
                                         <descriptor>src/main/assembly/plugin-schema-registry.xml</descriptor>
                                         <descriptor>src/main/assembly/plugin-presto.xml</descriptor>
                                     </descriptors>
