@@ -80,6 +80,40 @@
 		<value>true</value>
 	</property>
 	<property>
+		<name>ranger.audit.opensearch.urls</name>
+		<value>127.0.0.1</value>
+		<description></description>
+	</property>
+	<property>
+		<name>ranger.audit.opensearch.protocol</name>
+		<value>http</value>
+		<description></description>
+	</property>
+	<property>
+		<name>ranger.audit.opensearch.port</name>
+		<value>9200</value>
+		<description></description>
+	</property>
+	<property>
+		<name>ranger.audit.opensearch.user</name>
+		<value></value>
+		<description></description>
+	</property>
+	<property>
+		<name>ranger.audit.opensearch.password</name>
+		<value></value>
+		<description></description>
+	</property>
+	<property>
+		<name>ranger.audit.opensearch.index</name>
+		<value></value>
+		<description></description>
+	</property>
+	<property>
+		<name>ranger.audit.opensearch.bootstrap.enabled</name>
+		<value>true</value>
+	</property>
+	<property>
 		<name>ranger.audit.amazon_cloudwatch.region</name>
 		<value>us-east-2</value>
 	</property>

@@ -18,7 +18,10 @@
 package org.apache.ranger.authorization.opensearch.plugin.action.filter;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.ranger.authorization.opensearch.authorizer.RangerOpensearchAuthorizer;
+import org.apache.ranger.authorization.opensearch.plugin.RangerOpensearchPlugin;
 import org.apache.ranger.authorization.opensearch.plugin.authc.user.UsernamePasswordToken;
 import org.apache.ranger.authorization.opensearch.plugin.utils.RequestUtils;
 import org.opensearch.OpenSearchStatusException;
@@ -31,14 +34,11 @@ import org.opensearch.core.action.ActionListener;
 import org.opensearch.core.action.ActionResponse;
 import org.opensearch.core.rest.RestStatus;
 import org.opensearch.tasks.Task;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 public class RangerSecurityActionFilter extends AbstractLifecycleComponent implements ActionFilter {
-    private static final Logger LOG = LoggerFactory.getLogger(RangerSecurityActionFilter.class);
-
+    private static final Logger LOG = LogManager.getLogger(RangerOpensearchPlugin.class);
     private final ThreadContext                 threadContext;
     private final RangerOpensearchAuthorizer rangerOpensearchAuthorizer = new RangerOpensearchAuthorizer();
 

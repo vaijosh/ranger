@@ -49,7 +49,7 @@ import java.util.Set;
 public class OpensearchClient extends BaseClient {
     private static final Logger LOG = LoggerFactory.getLogger(OpensearchClient.class);
 
-    private static final String ELASTICSEARCH_INDEX_API_ENDPOINT = "/_all";
+    private static final String OPENSEARCH_INDEX_API_ENDPOINT = "/_all";
 
     private final String opensearchUrl;
     private final String userName;
@@ -139,7 +139,7 @@ public class OpensearchClient extends BaseClient {
                     indexApi += "*";
                 }
             } else {
-                indexApi = ELASTICSEARCH_INDEX_API_ENDPOINT;
+                indexApi = OPENSEARCH_INDEX_API_ENDPOINT;
             }
 
             ClientResponse      response        = getClientResponse(opensearchUrl, indexApi, userName);

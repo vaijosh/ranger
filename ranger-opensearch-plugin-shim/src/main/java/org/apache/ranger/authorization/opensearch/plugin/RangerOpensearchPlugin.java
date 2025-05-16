@@ -17,6 +17,8 @@
 
 package org.apache.ranger.authorization.opensearch.plugin;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.ranger.authorization.opensearch.plugin.action.filter.RangerSecurityActionFilter;
 import org.apache.ranger.authorization.opensearch.plugin.rest.filter.RangerSecurityRestFilter;
 import org.opensearch.action.support.ActionFilter;
@@ -36,8 +38,6 @@ import org.opensearch.rest.RestHandler;
 import org.opensearch.script.ScriptService;
 import org.opensearch.threadpool.ThreadPool;
 import org.opensearch.watcher.ResourceWatcherService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -51,9 +51,9 @@ import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 public class RangerOpensearchPlugin extends Plugin implements ActionPlugin {
-    private static final Logger LOG = LoggerFactory.getLogger(RangerOpensearchPlugin.class);
+    private static final Logger LOG = LogManager.getLogger(RangerOpensearchPlugin.class);
 
-    private static final String RANGER_ELASTICSEARCH_PLUGIN_CONF_NAME = "ranger-opensearch-plugin";
+    private static final String RANGER_OPENSEARCH_PLUGIN_CONF_NAME = "ranger-opensearch-plugin";
 
     private final Settings settings;
 
@@ -91,7 +91,7 @@ public class RangerOpensearchPlugin extends Plugin implements ActionPlugin {
      * then the plugin can load its configuration files from classpath.
      */
     private void addPluginConfig2Classpath(Environment environment) {
-        Path configPath = environment.configFile().resolve(RANGER_ELASTICSEARCH_PLUGIN_CONF_NAME);
+        Path configPath = environment.configFile().resolve(RANGER_OPENSEARCH_PLUGIN_CONF_NAME);
 
         if (configPath == null) {
             LOG.error("Failed to add ranger opensearch plugin config directory [ranger-opensearch-plugin] to classpath.");

@@ -18,8 +18,8 @@
 
 package org.apache.ranger.authorization.nestedstructure.authorizer;
 
-import jdk.nashorn.api.scripting.ClassFilter;
-import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
+import org.openjdk.nashorn.api.scripting.ClassFilter;
+import org.openjdk.nashorn.api.scripting.NashornScriptEngineFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,7 +55,7 @@ public class RecordFilterJavaScript {
         }
 
         NashornScriptEngineFactory factory = new NashornScriptEngineFactory();
-        ScriptEngine               engine  = factory.getScriptEngine(securityFilter);
+        ScriptEngine               engine  = factory.getScriptEngine((ClassFilter) securityFilter);
 
         logger.debug("filterExpr: {}", filterExpr);
 

@@ -88,7 +88,7 @@
           <include>org.opensearch:opensearch-x-content</include>
           <include>org.opensearch.client:opensearch-rest-client</include>
           <include>org.opensearch.client:opensearch-rest-high-level-client</include>
-          <include>org.openjdk.plugin:rank-eval-client</include>
+          <include>org.opensearch.plugin:rank-eval-client</include>
           <include>org.opensearch.plugin:lang-mustache-client</include>
           <include>org.apache.httpcomponents:httpcore-nio:jar:${httpcomponents.httpcore.version}</include>
           <include>org.apache.httpcomponents:httpasyncclient:jar:${httpcomponents.httpasyncclient.version}</include>

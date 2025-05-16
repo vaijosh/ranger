@@ -52,12 +52,13 @@ public class RangerServerHealthUtil {
        }
      }
 
-    In the future this health check API can be extended for other components like audit store (Solr, Elastic search), plugins, usersync, tagsync, KMS, etc
+    In the future this health check API can be extended for other components like audit store (Solr, Elastic search, Open search), plugins, usersync, tagsync, KMS, etc
      {
        "status": "UP",
        "components": {
          "db": { "status": "UP", "details": { "flavor": "Oracle", "version": "21.3c", "validationQuery": "SELECT banner from v$version where rownum<2" } },
-         "audit-Elasticsearch": { "status": "UP", "details": { "provider": "Elastic Search", "providerHealthCheckEndpoint": "http://localhost:9200/_cluster/health?pretty" } }
+         "audit-Elasticsearch": { "status": "UP", "details": { "provider": "Elastic Search", "providerHealthCheckEndpoint": "http://localhost:9200/_cluster/health?pretty" } },
+         "audit-Opensearch": { "status": "UP", "details": { "provider": "Open Search", "providerHealthCheckEndpoint": "http://localhost:9200/_cluster/health?pretty" } }
        }
      }
     */

@@ -21,15 +21,16 @@ package org.apache.ranger.services.opensearch.client;
 
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.ranger.authorization.opensearch.plugin.RangerOpensearchPlugin;
 import org.apache.ranger.plugin.service.ResourceLookupContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Map;
 
 public class OpensearchResourceMgr {
-    private static final Logger LOG = LoggerFactory.getLogger(OpensearchResourceMgr.class);
+    private static final Logger LOG = LogManager.getLogger(RangerOpensearchPlugin.class);
 
     public static final String INDEX = "index";
 

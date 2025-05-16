@@ -49,7 +49,7 @@ public class EmbeddedServiceDefsUtil {
     private static final Logger LOG = LoggerFactory.getLogger(EmbeddedServiceDefsUtil.class);
 
     // following servicedef list should be reviewed/updated whenever a new embedded service-def is added
-    public static final String DEFAULT_BOOTSTRAP_SERVICEDEF_LIST        = "tag,gds,hdfs,hbase,hive,kms,knox,storm,yarn,kafka,solr,atlas,nifi,nifi-registry,sqoop,kylin,elasticsearch,presto,trino,ozone,kudu,schema-registry,nestedstructure";
+    public static final String DEFAULT_BOOTSTRAP_SERVICEDEF_LIST        = "tag,gds,hdfs,hbase,hive,kms,knox,storm,yarn,kafka,solr,atlas,nifi,nifi-registry,sqoop,kylin,elasticsearch,opensearch,presto,trino,ozone,kudu,schema-registry,nestedstructure";
     public static final String EMBEDDED_SERVICEDEF_TAG_NAME             = "tag";
     public static final String EMBEDDED_SERVICEDEF_GDS_NAME             = "gds";
     public static final String EMBEDDED_SERVICEDEF_HDFS_NAME            = "hdfs";
@@ -70,6 +70,7 @@ public class EmbeddedServiceDefsUtil {
     public static final String EMBEDDED_SERVICEDEF_KYLIN_NAME           = "kylin";
     public static final String EMBEDDED_SERVICEDEF_ABFS_NAME            = "abfs";
     public static final String EMBEDDED_SERVICEDEF_ELASTICSEARCH_NAME   = "elasticsearch";
+    public static final String EMBEDDED_SERVICEDEF_OPENSEARCH_NAME      = "opensearch";
     public static final String EMBEDDED_SERVICEDEF_PRESTO_NAME          = "presto";
     public static final String EMBEDDED_SERVICEDEF_TRINO_NAME           = "trino";
     public static final String EMBEDDED_SERVICEDEF_OZONE_NAME           = "ozone";
@@ -118,6 +119,7 @@ public class EmbeddedServiceDefsUtil {
     private       RangerServiceDef        kylinServiceDef;
     private       RangerServiceDef        abfsServiceDef;
     private       RangerServiceDef        elasticsearchServiceDef;
+    private       RangerServiceDef        opensearchServiceDef;
     private       RangerServiceDef        prestoServiceDef;
     private       RangerServiceDef        trinoServiceDef;
     private       RangerServiceDef        ozoneServiceDef;
@@ -181,6 +183,7 @@ public class EmbeddedServiceDefsUtil {
             kylinServiceDef           = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_KYLIN_NAME);
             abfsServiceDef            = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_ABFS_NAME);
             elasticsearchServiceDef   = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_ELASTICSEARCH_NAME);
+            opensearchServiceDef      = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_OPENSEARCH_NAME);
             trinoServiceDef           = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_TRINO_NAME);
             prestoServiceDef          = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_PRESTO_NAME);
             ozoneServiceDef           = getOrCreateServiceDef(store, EMBEDDED_SERVICEDEF_OZONE_NAME);
@@ -263,6 +266,10 @@ public class EmbeddedServiceDefsUtil {
 
     public long getElasticsearchServiceDefId() {
         return getId(elasticsearchServiceDef);
+    }
+
+    public long getOpensearchServiceDefId() {
+        return getId(opensearchServiceDef);
     }
 
     public long getWasbServiceDefId() {

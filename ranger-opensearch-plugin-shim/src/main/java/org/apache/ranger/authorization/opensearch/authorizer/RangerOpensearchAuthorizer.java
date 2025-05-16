@@ -17,20 +17,21 @@
 
 package org.apache.ranger.authorization.opensearch.authorizer;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.ranger.authorization.opensearch.plugin.RangerOpensearchPlugin;
 import org.apache.ranger.plugin.classloader.RangerPluginClassLoader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 public class RangerOpensearchAuthorizer {
-    private static final Logger LOG = LoggerFactory.getLogger(RangerOpensearchAuthorizer.class);
+    private static final Logger LOG = LogManager.getLogger(RangerOpensearchPlugin.class);
 
     private static final String RANGER_PLUGIN_TYPE                             = "opensearch";
     private static final String RANGER_OPENSEARCH_AUTHORIZER_IMPL_CLASSNAME = "org.apache.ranger.authorization.opensearch.authorizer.RangerOpensearchAuthorizer";
 
     private RangerPluginClassLoader          rangerPluginClassLoader;
-    private ClassLoader                      esClassLoader;
+    private ClassLoader osClassLoader;
     private RangerOpensearchAccessControl rangerOpensearchAccessControl;
 
     public RangerOpensearchAuthorizer() {
@@ -47,13 +48,13 @@ public class RangerOpensearchAuthorizer {
         try {
             // In opensearch this.getClass().getClassLoader() is FactoryURLClassLoader,
             // but Thread.currentThread().getContextClassLoader() is AppClassLoader.
-            esClassLoader = Thread.currentThread().getContextClassLoader();
+            osClassLoader = Thread.currentThread().getContextClassLoader();
 
             Thread.currentThread().setContextClassLoader(this.getClass().getClassLoader());
 
             rangerPluginClassLoader = RangerPluginClassLoader.getInstance(RANGER_PLUGIN_TYPE, this.getClass());
 
-            Thread.currentThread().setContextClassLoader(esClassLoader);
+            Thread.currentThread().setContextClassLoader(osClassLoader);
 
             @SuppressWarnings("unchecked")
             Class<RangerOpensearchAccessControl> cls = (Class<RangerOpensearchAccessControl>) Class.forName(RANGER_OPENSEARCH_AUTHORIZER_IMPL_CLASSNAME, true, rangerPluginClassLoader);
@@ -95,8 +96,8 @@ public class RangerOpensearchAuthorizer {
     }
 
     private void deactivatePluginClassLoader() {
-        if (esClassLoader != null) {
-            Thread.currentThread().setContextClassLoader(esClassLoader);
+        if (osClassLoader != null) {
+            Thread.currentThread().setContextClassLoader(osClassLoader);
         }
     }
 }

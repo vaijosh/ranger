@@ -20,22 +20,23 @@ package org.apache.ranger.authorization.opensearch.authorizer;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.thirdparty.com.google.common.collect.Sets;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.ranger.audit.provider.MiscUtil;
+import org.apache.ranger.authorization.opensearch.plugin.RangerOpensearchPlugin;
 import org.apache.ranger.plugin.policyengine.RangerAccessRequestImpl;
 import org.apache.ranger.plugin.policyengine.RangerAccessResourceImpl;
 import org.apache.ranger.plugin.policyengine.RangerAccessResult;
 import org.apache.ranger.plugin.service.RangerBasePlugin;
 import org.apache.ranger.services.opensearch.client.OpensearchResourceMgr;
 import org.apache.ranger.services.opensearch.privilege.IndexPrivilegeUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class RangerOpensearchAuthorizer implements RangerOpensearchAccessControl {
-    private static final Logger LOG = LoggerFactory.getLogger(RangerOpensearchAuthorizer.class);
+    private static final Logger LOG = LogManager.getLogger(RangerOpensearchPlugin.class);
 
     private static volatile RangerOpensearchInnerPlugin opensearchPlugin;
 

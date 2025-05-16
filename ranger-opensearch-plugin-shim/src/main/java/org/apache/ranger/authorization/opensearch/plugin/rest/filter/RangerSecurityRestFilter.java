@@ -18,6 +18,9 @@
 package org.apache.ranger.authorization.opensearch.plugin.rest.filter;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.ranger.authorization.opensearch.plugin.RangerOpensearchPlugin;
 import org.apache.ranger.authorization.opensearch.plugin.authc.user.UsernamePasswordToken;
 import org.apache.ranger.authorization.opensearch.plugin.utils.RequestUtils;
 import org.opensearch.OpenSearchStatusException;
@@ -28,11 +31,9 @@ import org.opensearch.core.rest.RestStatus;
 import org.opensearch.rest.RestChannel;
 import org.opensearch.rest.RestHandler;
 import org.opensearch.rest.RestRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class RangerSecurityRestFilter extends AbstractLifecycleComponent implements RestHandler {
-    private static final Logger LOG = LoggerFactory.getLogger(RangerSecurityRestFilter.class);
+    private static final Logger LOG = LogManager.getLogger(RangerOpensearchPlugin.class);
 
     private final RestHandler   restHandler;
     private final ThreadContext threadContext;
