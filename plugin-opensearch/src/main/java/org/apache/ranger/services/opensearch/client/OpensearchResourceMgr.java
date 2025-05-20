@@ -23,14 +23,13 @@ import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.ranger.authorization.opensearch.plugin.RangerOpensearchPlugin;
 import org.apache.ranger.plugin.service.ResourceLookupContext;
 
 import java.util.List;
 import java.util.Map;
 
 public class OpensearchResourceMgr {
-    private static final Logger LOG = LogManager.getLogger(RangerOpensearchPlugin.class);
+    private static final Logger LOG = LogManager.getLogger(OpensearchResourceMgr.class);
 
     public static final String INDEX = "index";
 

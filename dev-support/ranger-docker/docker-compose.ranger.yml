@@ -16,6 +16,7 @@ services:
       - ranger
     ports:
       - "6080:6080"
+ #     - "5005:5005"
     depends_on:
       ranger-zk:
         condition: service_started
@@ -27,6 +28,7 @@ services:
       - RANGER_VERSION
       - RANGER_DB_TYPE
       - DEBUG_ADMIN=${DEBUG_ADMIN:-false}
+#      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
     command:
       - /home/ranger/scripts/ranger.sh
 
