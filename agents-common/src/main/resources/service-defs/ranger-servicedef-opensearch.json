@@ -1,11 +1,11 @@
 {
-	"id":16,
+	"id": 343,
 	"name": "opensearch",
 	"displayName": "opensearch",
 	"implClass": "org.apache.ranger.services.opensearch.RangerServiceOpensearch",
 	"label": "OPENSEARCH",
 	"description": "OPENSEARCH",
-	"guid": "c0682ba7-7052-4c9c-a30e-84ccd5d98457",
+	"guid": "",
 	"resources":
 	[
 		{

@@ -1106,8 +1106,20 @@
                 <module>agents-installer</module>
                 <module>credentialbuilder</module>
                 <module>plugin-elasticsearch</module>
-                <module>plugin-opensearch</module>
                 <module>ranger-elasticsearch-plugin-shim</module>
+                <module>ranger-plugin-classloader</module>
+                <module>ranger-util</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>ranger-opensearch-plugin</id>
+            <modules>
+                <module>agents-audit</module>
+                <module>agents-common</module>
+                <module>agents-cred</module>
+                <module>agents-installer</module>
+                <module>credentialbuilder</module>
+                <module>plugin-opensearch</module>
                 <module>ranger-opensearch-plugin-shim</module>
                 <module>ranger-plugin-classloader</module>
                 <module>ranger-util</module>
@@ -1208,6 +1220,7 @@
                 <module>ranger-knox-plugin-shim</module>
                 <module>ranger-kylin-plugin-shim</module>
                 <module>ranger-metrics</module>
+                <module>ranger-opensearch-plugin-shim</module>
                 <module>ranger-ozone-plugin-shim</module>
                 <module>ranger-plugin-classloader</module>
                 <module>ranger-presto-plugin-shim</module>
@@ -1270,6 +1283,7 @@
                 <module>plugin-kylin</module>
                 <module>plugin-nifi</module>
                 <module>plugin-nifi-registry</module>
+                <module>plugin-opensearch</module>
                 <module>plugin-ozone</module>
                 <module>plugin-presto</module>
                 <module>plugin-schema-registry</module>
@@ -1290,6 +1304,7 @@
                 <module>ranger-knox-plugin-shim</module>
                 <module>ranger-kylin-plugin-shim</module>
                 <module>ranger-metrics</module>
+                <module>ranger-opensearch-plugin-shim</module>
                 <module>ranger-ozone-plugin-shim</module>
                 <module>ranger-plugin-classloader</module>
                 <module>ranger-presto-plugin-shim</module>

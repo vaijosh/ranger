@@ -20,7 +20,6 @@ package org.apache.ranger.authorization.opensearch.plugin;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.ranger.authorization.opensearch.plugin.action.filter.RangerSecurityActionFilter;
-import org.apache.ranger.authorization.opensearch.plugin.rest.filter.RangerSecurityRestFilter;
 import org.opensearch.action.support.ActionFilter;
 import org.opensearch.client.Client;
 import org.opensearch.cluster.metadata.IndexNameExpressionResolver;
@@ -72,7 +71,7 @@ public class RangerOpensearchPlugin extends Plugin implements ActionPlugin {
 
     @Override
     public UnaryOperator<RestHandler> getRestHandlerWrapper(ThreadContext threadContext) {
-        return handler -> new RangerSecurityRestFilter(threadContext, handler);
+        return null;
     }
 
     @Override
