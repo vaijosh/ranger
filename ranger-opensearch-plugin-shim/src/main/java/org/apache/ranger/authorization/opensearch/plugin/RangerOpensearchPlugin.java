@@ -55,7 +55,6 @@ public class RangerOpensearchPlugin extends Plugin implements ActionPlugin {
     private static final String RANGER_OPENSEARCH_PLUGIN_CONF_NAME = "ranger-opensearch-plugin";
 
     private final Settings settings;
-
     private RangerSecurityActionFilter rangerSecurityActionFilter;
 
     public RangerOpensearchPlugin(Settings settings) {
@@ -79,8 +78,7 @@ public class RangerOpensearchPlugin extends Plugin implements ActionPlugin {
             final ScriptService scriptService, final NamedXContentRegistry xContentRegistry, final Environment environment, final NodeEnvironment nodeEnvironment,
             final NamedWriteableRegistry namedWriteableRegistry, IndexNameExpressionResolver indexNameExpressionResolver, Supplier<RepositoriesService> repositoriesServiceSupplier) {
         addPluginConfig2Classpath(environment);
-
-        rangerSecurityActionFilter = new RangerSecurityActionFilter(threadPool.getThreadContext());
+        rangerSecurityActionFilter = new RangerSecurityActionFilter(threadPool);
 
         return Collections.singletonList(rangerSecurityActionFilter);
     }
