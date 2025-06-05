@@ -1,5 +1,5 @@
 {
-	"id": 343,
+	"id": 350,
 	"name": "opensearch",
 	"displayName": "opensearch",
 	"implClass": "org.apache.ranger.services.opensearch.RangerServiceOpensearch",
@@ -176,16 +176,25 @@
 			"uiHint":"",
 			"label": "Username"
 		},
-
 		{
 			"itemId": 2,
+			"name": "password",
+			"type": "string",
+			"mandatory": true,
+			"validationRegEx":"",
+			"validationMessage": "",
+			"uiHint":"",
+			"label": "Opensearch Password"
+		},
+		{
+			"itemId": 3,
 			"name": "opensearch.url",
 			"type": "string",
 			"mandatory": true,
 			"defaultValue": "",
-			"validationRegEx":"",
+			"validationRegEx": "",
 			"validationMessage": "",
-			"uiHint":"{\"TextFieldWithIcon\":true, \"info\": \"eg. 'http://&lt;ipaddr&gt;:9200'\"}",
+			"uiHint": "{\"TextFieldWithIcon\":true, \"info\": \"eg. 'http://&lt;ipaddr&gt;:9200'\"}",
 			"label": "Opensearch URL"
 		}
 	],

@@ -31,6 +31,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpStatus;
 import org.apache.ranger.plugin.client.BaseClient;
 import org.apache.ranger.plugin.client.HadoopException;
+import org.apache.ranger.plugin.util.PasswordUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,8 +39,10 @@ import javax.security.auth.Subject;
 import javax.ws.rs.core.MediaType;
 
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.security.PrivilegedAction;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -53,12 +56,14 @@ public class OpensearchClient extends BaseClient {
 
     private final String opensearchUrl;
     private final String userName;
+    private final String password;
 
     public OpensearchClient(String serviceName, Map<String, String> configs) {
         super(serviceName, configs, "opensearch-client");
 
         this.opensearchUrl = configs.get("opensearch.url");
         this.userName         = configs.get("username");
+        this.password         = configs.get("password");
 
         if (StringUtils.isEmpty(this.opensearchUrl)) {
             LOG.error("No value found for configuration 'opensearch.url'. Opensearch resource lookup will fail.");
@@ -142,7 +147,7 @@ public class OpensearchClient extends BaseClient {
                 indexApi = OPENSEARCH_INDEX_API_ENDPOINT;
             }
 
-            ClientResponse      response        = getClientResponse(opensearchUrl, indexApi, userName);
+            ClientResponse      response        = getClientResponse(opensearchUrl, indexApi, userName, password);
             Map<String, Object> index2detailMap = getOpensearchResourceResponse(response, new TypeToken<HashMap<String, Object>>() {}.getType());
 
             if (MapUtils.isEmpty(index2detailMap)) {
@@ -163,7 +168,7 @@ public class OpensearchClient extends BaseClient {
         return ret;
     }
 
-    private static ClientResponse getClientResponse(String opensearchUrl, String opensearchApi, String userName) {
+    private static ClientResponse getClientResponse(String opensearchUrl, String opensearchApi, String userName, String password) {
         String[] opensearchUrls = opensearchUrl.trim().split("[,;]");
 
         if (ArrayUtils.isEmpty(opensearchUrls)) {
@@ -181,7 +186,7 @@ public class OpensearchClient extends BaseClient {
             String url = currentUrl.trim() + opensearchApi;
 
             try {
-                response = getClientResponse(url, client, userName);
+                response = getClientResponse(url, client, userName, password);
 
                 if (response != null) {
                     if (response.getStatus() == HttpStatus.SC_OK) {
@@ -202,10 +207,40 @@ public class OpensearchClient extends BaseClient {
         return response;
     }
 
-    private static ClientResponse getClientResponse(String url, Client client, String userName) {
-        LOG.debug("getClientResponse():calling {}", url);
+    private static String decryptPass(String encryptedPwd) {
 
-        ClientResponse response = client.resource(url).accept(MediaType.APPLICATION_JSON).header("userName", userName).get(ClientResponse.class);
+        String password     = null;
+        // LOG.info("ABHRADEEP OPENSEARCHCLIENT===================== Getting the encryptedPwd as " + encryptedPwd);
+        if (encryptedPwd != null) {
+            try {
+                password = PasswordUtils.decryptPassword(encryptedPwd);
+                // LOG.info("ABHRADEEP OPENSEARCHCLIENT===================== Getting the password as " + password);
+            } catch (Exception ex) {
+                LOG.info("Password decryption failed; trying connection with received password string");
+
+                password = null;
+            } finally {
+                if (password == null) {
+                    password = encryptedPwd;
+                }
+            }
+        } else {
+            LOG.info("Password decryption failed: no password was configured");
+        }
+        return password;
+    }
+
+    private static ClientResponse getClientResponse(String url, Client client, String userName, String password) {
+        LOG.debug("getClientResponse():calling {}", url);
+        // LOG.info("ABHRADEEP ===================== Getting the password as " + password);
+        String decryptedPass = decryptPass(password);
+        String auth = userName + ":" + decryptedPass;
+        byte[] encodedAuth = Base64.getEncoder().encode(auth.getBytes(StandardCharsets.UTF_8));
+        String encodedAuthStr = new String(encodedAuth);
+        String authHeader = "Basic "+encodedAuthStr;
+        // LOG.info("ABHRADEEP ===================== Passing the auth header as " + authHeader);
+
+        ClientResponse response = client.resource(url).accept(MediaType.APPLICATION_JSON).header("userName", userName).header("Authorization", authHeader).get(ClientResponse.class);
 
         if (response != null) {
             LOG.debug("getClientResponse():response.getStatus()= {}", response.getStatus());
