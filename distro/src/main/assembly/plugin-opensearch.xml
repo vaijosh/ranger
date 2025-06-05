@@ -31,7 +31,7 @@
       </includes>
       <binaries>
         <outputDirectory>lib/ranger-opensearch-plugin</outputDirectory>
-        <includeDependencies>false</includeDependencies>
+        <includeDependencies>true</includeDependencies>
         <unpack>false</unpack>
         <directoryMode>755</directoryMode>
         <fileMode>644</fileMode>
@@ -54,7 +54,7 @@
       </includes>
       <binaries>
         <outputDirectory>lib/ranger-opensearch-plugin/ranger-opensearch-plugin-impl</outputDirectory>
-        <includeDependencies>false</includeDependencies>
+        <includeDependencies>true</includeDependencies>
         <unpack>false</unpack>
         <directoryMode>755</directoryMode>
         <fileMode>644</fileMode>
@@ -112,7 +112,7 @@
       </includes>
       <binaries>
         <outputDirectory>install/lib</outputDirectory>
-        <includeDependencies>false</includeDependencies>
+        <includeDependencies>true</includeDependencies>
         <unpack>false</unpack>
         <directoryMode>755</directoryMode>
         <fileMode>644</fileMode>
