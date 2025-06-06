@@ -23,7 +23,6 @@ import org.apache.hadoop.thirdparty.com.google.common.collect.Sets;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.ranger.audit.provider.MiscUtil;
-import org.apache.ranger.authorization.opensearch.plugin.RangerOpensearchPlugin;
 import org.apache.ranger.plugin.policyengine.RangerAccessRequestImpl;
 import org.apache.ranger.plugin.policyengine.RangerAccessResourceImpl;
 import org.apache.ranger.plugin.policyengine.RangerAccessResult;
@@ -36,7 +35,7 @@ import java.util.Date;
 import java.util.List;
 
 public class RangerOpensearchAuthorizer implements RangerOpensearchAccessControl {
-    private static final Logger LOG = LogManager.getLogger(RangerOpensearchPlugin.class);
+    private static final Logger LOG = LogManager.getLogger(RangerOpensearchAccessControl.class);
 
     private static volatile RangerOpensearchInnerPlugin opensearchPlugin;
 

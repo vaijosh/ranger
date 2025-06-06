@@ -208,13 +208,10 @@ public class OpensearchClient extends BaseClient {
     }
 
     private static String decryptPass(String encryptedPwd) {
-
         String password     = null;
-        // LOG.info("ABHRADEEP OPENSEARCHCLIENT===================== Getting the encryptedPwd as " + encryptedPwd);
         if (encryptedPwd != null) {
             try {
                 password = PasswordUtils.decryptPassword(encryptedPwd);
-                // LOG.info("ABHRADEEP OPENSEARCHCLIENT===================== Getting the password as " + password);
             } catch (Exception ex) {
                 LOG.info("Password decryption failed; trying connection with received password string");
 
@@ -232,14 +229,11 @@ public class OpensearchClient extends BaseClient {
 
     private static ClientResponse getClientResponse(String url, Client client, String userName, String password) {
         LOG.debug("getClientResponse():calling {}", url);
-        // LOG.info("ABHRADEEP ===================== Getting the password as " + password);
         String decryptedPass = decryptPass(password);
         String auth = userName + ":" + decryptedPass;
         byte[] encodedAuth = Base64.getEncoder().encode(auth.getBytes(StandardCharsets.UTF_8));
         String encodedAuthStr = new String(encodedAuth);
-        String authHeader = "Basic "+encodedAuthStr;
-        // LOG.info("ABHRADEEP ===================== Passing the auth header as " + authHeader);
-
+        String authHeader = "Basic " + encodedAuthStr;
         ClientResponse response = client.resource(url).accept(MediaType.APPLICATION_JSON).header("userName", userName).header("Authorization", authHeader).get(ClientResponse.class);
 
         if (response != null) {

@@ -54,6 +54,9 @@ public class RangerOpensearchAuditHandler extends RangerMultiResourceAuditHandle
         AuthzAuditEvent auditEvent = super.getAuthzEvents(result);
 
         super.logAuthzAudit(auditEvent);
+
+        //XXX:TODO: Can we improve this and flush events based on flush interval or some other events?
+        super.flushAudit();
     }
 
     private boolean isAuditingNeeded(final RangerAccessResult result) {

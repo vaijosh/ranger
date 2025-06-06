@@ -34,7 +34,6 @@ import org.opensearch.core.rest.RestStatus;
 import org.opensearch.tasks.Task;
 import org.opensearch.threadpool.ThreadPool;
 
-import java.util.Base64;
 import java.util.List;
 
 public class RangerSecurityActionFilter extends AbstractLifecycleComponent implements ActionFilter {
@@ -52,7 +51,6 @@ public class RangerSecurityActionFilter extends AbstractLifecycleComponent imple
     public int order() {
         return 0;
     }
-
 
     @Override
     public <Request extends ActionRequest, Response extends ActionResponse> void apply(Task task, String action, Request request, ActionListener<Response> listener, ActionFilterChain<Request, Response> chain) {

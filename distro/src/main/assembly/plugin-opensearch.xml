@@ -64,6 +64,67 @@
           <include>org.apache.hadoop:hadoop-common-plus:jar:${hadoop.version}</include>
           <include>org.apache.hadoop:hadoop-auth:jar:${hadoop.version}</include>
           <include>org.apache.hadoop:hadoop-hdfs:jar:${hadoop.version}</include>
+          <include>org.eclipse.jetty:jetty-client:jar:${jetty-client.version}</include>
+          <include>commons-logging:commons-logging:jar:${commons.logging.version}</include>
+          <include>org.apache.httpcomponents:httpclient:jar:${httpcomponents.httpclient.version}</include>
+          <include>org.apache.httpcomponents:httpcore:jar:${httpcomponents.httpcore.version}</include>
+          <include>org.apache.httpcomponents:httpmime:jar:${httpcomponents.httpmime.version}</include>
+          <include>com.fasterxml.jackson.core:jackson-annotations:jar:${fasterxml.jackson.version}</include>
+          <include>com.fasterxml.jackson.core:jackson-core:jar:${fasterxml.jackson.version}</include>
+          <include>com.fasterxml.jackson.core:jackson-databind:jar:${fasterxml.jackson.version}</include>
+          <include>com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:${fasterxml.jackson.version}</include>
+          <include>com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:${fasterxml.jackson.version}</include>
+          <include>org.apache.solr:solr-solrj:jar:${solr.version}</include>
+          <include>com.kstruct:gethostname4j:jar:${kstruct.gethostname4j.version}</include>
+          <include>org.opensearch:opensearch</include>
+          <include>org.opensearch:opensearch-core</include>
+          <include>org.opensearch:opensearch-x-content</include>
+          <include>org.opensearch.client:opensearch-rest-client</include>
+          <include>org.opensearch.client:opensearch-rest-high-level-client</include>
+          <include>org.opensearch.plugin:rank-eval-client</include>
+          <include>org.apache.httpcomponents:httpcore-nio:jar:${httpcomponents.httpcore.version}</include>
+          <include>org.apache.httpcomponents:httpasyncclient:jar:${httpcomponents.httpasyncclient.version}</include>
+          <include>org.apache.commons:commons-compress:jar:${commons.compress.version}</include>
+          <include>org.apache.hadoop.thirdparty:hadoop-shaded-guava:jar:${hadoop-shaded-guava.version}</include>
+          <include>commons-lang:commons-lang:jar:${commons.lang.version}</include>
+          <include>org.codehaus.woodstox:stax2-api:jar:${codehaus.woodstox.stax2api.version}</include>
+          <include>org.apache.commons:commons-lang3:jar:${commons.lang3.version}</include>
+          <include>stax:stax-api:jar:${stax-api.version}</include>
+          <include>commons-cli:commons-cli:jar:${commons.cli.version}</include>
+          <include>commons-collections:commons-collections:jar:${commons.collections.version}</include>
+          <include>org.slf4j:slf4j-api:jar:${slf4j-api.version}</include>
+          <include>com.fasterxml.woodstox:woodstox-core:jar:${fasterxml.woodstox.version}</include>
+          <include>org.apache.commons:commons-configuration2:jar:${commons.configuration.version}</include>
+          <include>javax.ws.rs:javax.ws.rs-api:jar:${javax.ws.rs.version}</include>
+          <include>com.sun.jersey:jersey-client:jar:${jersey-bundle.version}</include>
+          <include>com.sun.jersey:jersey-core:jar:${jersey-bundle.version}</include>
+          <include>com.sun.jersey:jersey-server:jar:${jersey-bundle.version}</include>
+          <include>com.sun.jersey:jersey-json:jar:${jersey-bundle.version}</include>
+          <include>org.codehaus.jackson:jackson-core-asl:jar:${jackson-core-asl.version}</include>
+          <include>org.apache.zookeeper:zookeeper:jar:${zookeeper.version}</include>
+          <include>org.glassfish.jersey.core:jersey-common:jar:${jersey-common.version}</include>
+        </includes>
+      </binaries>
+    </moduleSet>
+
+    <moduleSet>
+      <useAllReactorProjects>true</useAllReactorProjects>
+      <includes>
+        <include>org.apache.ranger:ranger-plugins-installer</include>
+        <include>org.apache.ranger:credentialbuilder</include>
+      </includes>
+      <binaries>
+        <outputDirectory>install/lib</outputDirectory>
+        <includeDependencies>true</includeDependencies>
+        <unpack>false</unpack>
+        <directoryMode>755</directoryMode>
+        <fileMode>644</fileMode>
+        <includes>
+          <include>commons-configuration:commons-configuration:jar:${commons.configuration.version}</include>
+          <include>org.apache.hadoop:hadoop-common:jar:${hadoop.version}</include>
+          <include>org.apache.hadoop:hadoop-common-plus:jar:${hadoop.version}</include>
+          <include>org.apache.hadoop:hadoop-auth:jar:${hadoop.version}</include>
+          <include>org.apache.hadoop:hadoop-hdfs:jar:${hadoop.version}</include>
           <include>com.google.code.gson:gson</include>
           <include>org.eclipse.jetty:jetty-client:jar:${jetty-client.version}</include>
           <include>com.sun.jersey:jersey-bundle</include>
@@ -75,7 +136,7 @@
           <include>org.noggit:noggit:jar:${noggit.version}</include>
           <include>com.fasterxml.jackson.core:jackson-annotations:jar:${fasterxml.jackson.version}</include>
           <include>com.fasterxml.jackson.core:jackson-core:jar:${fasterxml.jackson.version}</include>
-          <include>com.fasterxml.jackson.core:jackson-databind:${fasterxml.jackson.version}</include>
+          <include>com.fasterxml.jackson.core:jackson-databind:jar:${fasterxml.jackson.version}</include>
           <include>com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:${fasterxml.jackson.version}</include>
           <include>com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:${fasterxml.jackson.version}</include>
           <include>org.apache.solr:solr-solrj:jar:${solr.version}</include>
@@ -98,40 +159,17 @@
           <include>org.apache.hive:hive-storage-api:jar:${hive.storage-api.version}</include>
           <include>org.apache.orc:orc-core:jar:${orc.version}</include>
           <include>org.apache.orc:orc-shims:jar:${orc.version}</include>
-          <include>io.airlift:aircompressor:jar:${aircompressor.version}</include>
-          <include>org.apache.hadoop.thirdparty:hadoop-shaded-guava:jar:${hadoop-shaded-guava.version}</include>
-        </includes>
-      </binaries>
-    </moduleSet>
-
-    <moduleSet>
-      <useAllReactorProjects>true</useAllReactorProjects>
-      <includes>
-        <include>org.apache.ranger:ranger-plugins-installer</include>
-        <include>org.apache.ranger:credentialbuilder</include>
-      </includes>
-      <binaries>
-        <outputDirectory>install/lib</outputDirectory>
-        <includeDependencies>true</includeDependencies>
-        <unpack>false</unpack>
-        <directoryMode>755</directoryMode>
-        <fileMode>644</fileMode>
-        <includes>
-          <include>com.fasterxml.woodstox:woodstox-core</include>
-          <include>commons-cli:commons-cli</include>
-          <include>commons-collections:commons-collections</include>
-          <include>commons-configuration:commons-configuration:jar:${commons.configuration.version}</include>
-          <include>commons-io:commons-io:jar:${commons.io.version}</include>
-          <include>commons-lang:commons-lang:jar:${commons.lang.version}</include>
-          <include>commons-logging:commons-logging:jar:${commons.logging.version}</include>
           <include>org.apache.commons:commons-compress:jar:${commons.compress.version}</include>
-          <include>org.apache.commons:commons-configuration2:jar:${commons.configuration.version}</include>
-          <include>org.apache.commons:commons-lang3:jar:${commons.lang3.version}</include>
-          <include>org.apache.hadoop:hadoop-auth:jar:${hadoop.version}</include>
-          <include>org.apache.hadoop:hadoop-common:jar:${hadoop.version}</include>
-          <include>org.apache.ranger:ranger-plugins-cred</include>
           <include>org.apache.hadoop.thirdparty:hadoop-shaded-guava:jar:${hadoop-shaded-guava.version}</include>
+          <include>commons-lang:commons-lang:jar:${commons.lang.version}</include>
+          <include>org.codehaus.woodstox:stax2-api:jar:${codehaus.woodstox.stax2api.version}</include>
+          <include>org.apache.commons:commons-lang3:jar:${commons.lang3.version}</include>
+          <include>stax:stax-api:jar:${stax-api.version}</include>
+          <include>commons-cli:commons-cli:jar:${commons.cli.version}</include>
+          <include>commons-collections:commons-collections:jar:${commons.collections.version}</include>
           <include>org.slf4j:slf4j-api:jar:${slf4j-api.version}</include>
+          <include>com.fasterxml.woodstox:woodstox-core:jar:${fasterxml.woodstox.version}</include>
+          <include>org.apache.commons:commons-configuration2:jar:${commons.configuration.version}</include>
         </includes>
       </binaries>
     </moduleSet>

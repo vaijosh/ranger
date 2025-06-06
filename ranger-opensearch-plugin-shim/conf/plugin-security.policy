@@ -36,4 +36,8 @@ grant {
   permission java.util.PropertyPermission "*", "read,write";
   // adapt to different directories configured by user
   permission java.io.FilePermission "<<ALL FILES>>", "read,write";
+
+  permission java.lang.reflect.ReflectPermission "newProxyInPackage.com.kstruct.gethostname4j";
+
+  permission javax.net.ssl.SSLPermission "setDefaultSSLContext";
 };
