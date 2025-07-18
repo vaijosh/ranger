@@ -74,13 +74,6 @@
           <include>org.elasticsearch.client:elasticsearch-rest-high-level-client</include>
           <include>org.elasticsearch.plugin:rank-eval-client</include>
           <include>org.elasticsearch.plugin:lang-mustache-client</include>
-          <include>org.opensearch:opensearch</include>
-          <include>org.opensearch:opensearch-core</include>
-          <include>org.opensearch:opensearch-x-content</include>
-          <include>org.opensearch.client:opensearch-rest-client</include>
-          <include>org.opensearch.client:opensearch-rest-high-level-client</include>
-          <include>org.opensearch.plugin:rank-eval-client</include>
-          <include>org.opensearch.plugin:lang-mustache-client</include>
           <include>org.apache.httpcomponents:httpasyncclient:jar:${httpcomponents.httpasyncclient.version}</include>
           <include>org.apache.lucene:lucene-core</include>
           <include>joda-time:joda-time</include>

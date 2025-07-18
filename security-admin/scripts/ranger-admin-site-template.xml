@@ -165,14 +165,6 @@
 		<value></value>
 	</property>
 	<property>
-		<name>ranger.audit.opensearch.urls</name>
-		<value></value>
-	</property>
-	<property>
-		<name>ranger.audit.opensearch.protocol</name>
-		<value></value>
-	</property>
-	<property>
 		<name>ranger.audit.elasticsearch.port</name>
 		<value></value>
 	</property>
@@ -181,19 +173,7 @@
 		<value></value>
 	</property>
 	<property>
-		<name>ranger.audit.opensearch.port</name>
-		<value></value>
-	</property>
-	<property>
-		<name>ranger.audit.opensearch.user</name>
-		<value></value>
-	</property>
-	<property>
 		<name>ranger.audit.elasticsearch.password</name>
-		<value></value>
-	</property>
-	<property>
-		<name>ranger.audit.opensearch.password</name>
 		<value></value>
 	</property>
 	<property>

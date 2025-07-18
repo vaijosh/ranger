@@ -883,7 +883,6 @@
                 <module>ranger-knox-plugin-shim</module>
                 <module>ranger-kylin-plugin-shim</module>
                 <module>ranger-metrics</module>
-                <module>ranger-opensearch-plugin-shim</module>
                 <module>ranger-ozone-plugin-shim</module>
                 <module>ranger-plugin-classloader</module>
                 <module>ranger-presto-plugin-shim</module>
@@ -1125,7 +1124,6 @@
                 <module>agents-installer</module>
                 <module>credentialbuilder</module>
                 <module>plugin-opensearch</module>
-                <module>ranger-opensearch-plugin-shim</module>
                 <module>ranger-plugin-classloader</module>
                 <module>ranger-util</module>
             </modules>
@@ -1225,7 +1223,6 @@
                 <module>ranger-knox-plugin-shim</module>
                 <module>ranger-kylin-plugin-shim</module>
                 <module>ranger-metrics</module>
-                <module>ranger-opensearch-plugin-shim</module>
                 <module>ranger-ozone-plugin-shim</module>
                 <module>ranger-plugin-classloader</module>
                 <module>ranger-presto-plugin-shim</module>
@@ -1309,7 +1306,6 @@
                 <module>ranger-knox-plugin-shim</module>
                 <module>ranger-kylin-plugin-shim</module>
                 <module>ranger-metrics</module>
-                <module>ranger-opensearch-plugin-shim</module>
                 <module>ranger-ozone-plugin-shim</module>
                 <module>ranger-plugin-classloader</module>
                 <module>ranger-presto-plugin-shim</module>

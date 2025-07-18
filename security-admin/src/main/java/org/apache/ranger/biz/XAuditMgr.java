@@ -24,7 +24,6 @@ import org.apache.ranger.common.ContextUtil;
 import org.apache.ranger.common.SearchCriteria;
 import org.apache.ranger.common.UserSessionBase;
 import org.apache.ranger.elasticsearch.ElasticSearchAccessAuditsService;
-import org.apache.ranger.opensearch.OpenSearchAccessAuditsService;
 import org.apache.ranger.solr.SolrAccessAuditsService;
 import org.apache.ranger.view.VXAccessAudit;
 import org.apache.ranger.view.VXAccessAuditList;
@@ -44,9 +43,6 @@ public class XAuditMgr extends XAuditMgrBase {
 
     @Autowired
     ElasticSearchAccessAuditsService elasticSearchAccessAuditsService;
-
-    @Autowired
-    OpenSearchAccessAuditsService openSearchAccessAuditsService;
 
     @Autowired
     CloudWatchAccessAuditsService cloudWatchAccessAuditsService;
@@ -122,8 +118,6 @@ public class XAuditMgr extends XAuditMgrBase {
             return solrAccessAuditsService.searchXAccessAudits(searchCriteria);
         } else if (RangerBizUtil.AUDIT_STORE_ELASTIC_SEARCH.equalsIgnoreCase(auditDBType)) {
             return elasticSearchAccessAuditsService.searchXAccessAudits(searchCriteria);
-        } else if (RangerBizUtil.AUDIT_STORE_OPEN_SEARCH.equalsIgnoreCase(auditDBType)) {
-            return openSearchAccessAuditsService.searchXAccessAudits(searchCriteria);
         } else if (RangerBizUtil.AUDIT_STORE_CLOUD_WATCH.equalsIgnoreCase(auditDBType)) {
             return cloudWatchAccessAuditsService.searchXAccessAudits(searchCriteria);
         } else {
@@ -139,8 +133,6 @@ public class XAuditMgr extends XAuditMgrBase {
             return solrAccessAuditsService.getXAccessAuditSearchCount(searchCriteria);
         } else if (RangerBizUtil.AUDIT_STORE_ELASTIC_SEARCH.equalsIgnoreCase(auditDBType)) {
             return elasticSearchAccessAuditsService.getXAccessAuditSearchCount(searchCriteria);
-        } else if (RangerBizUtil.AUDIT_STORE_OPEN_SEARCH.equalsIgnoreCase(auditDBType)) {
-            return openSearchAccessAuditsService.getXAccessAuditSearchCount(searchCriteria);
         } else if (RangerBizUtil.AUDIT_STORE_CLOUD_WATCH.equalsIgnoreCase(auditDBType)) {
             return cloudWatchAccessAuditsService.getXAccessAuditSearchCount(searchCriteria);
         } else {

@@ -214,8 +214,6 @@ elif [ "${HCOMPONENT_NAME}" = "kylin" ]; then
     HCOMPONENT_LIB_DIR=${HCOMPONENT_INSTALL_DIR}/tomcat/webapps/kylin/WEB-INF/lib
 elif [ "${HCOMPONENT_NAME}" = "elasticsearch" ]; then
     HCOMPONENT_LIB_DIR=${HCOMPONENT_INSTALL_DIR}/plugins
-elif [ "${HCOMPONENT_NAME}" = "opensearch" ]; then
-    HCOMPONENT_LIB_DIR=${HCOMPONENT_INSTALL_DIR}/plugins
 elif [ "${HCOMPONENT_NAME}" = "presto" ]; then
     HCOMPONENT_LIB_DIR=${HCOMPONENT_INSTALL_DIR}/plugin/ranger
     if [ ! -d "${HCOMPONENT_LIB_DIR}" ]; then
@@ -256,19 +254,11 @@ elif [ "${HCOMPONENT_NAME}" = "sqoop" ]; then
 elif [ "${HCOMPONENT_NAME}" = "elasticsearch" ]; then
     HCOMPONENT_CONF_DIR=${HCOMPONENT_INSTALL_DIR}/config/ranger-elasticsearch-plugin
 	if [ ! -d $HCOMPONENT_CONF_DIR ]; then
-    echo "INFO: Creating $HCOMPONENT_CONF_DIR"
-    mkdir -p $HCOMPONENT_CONF_DIR
-    echo "INFO: Changing ownership of $HCOMPONENT_CONF_DIR to $CFG_OWNER_INF"
-    chown $CFG_OWNER_INF $HCOMPONENT_CONF_DIR
-  fi
-elif [ "${HCOMPONENT_NAME}" = "opensearch" ]; then
-    HCOMPONENT_CONF_DIR=${HCOMPONENT_INSTALL_DIR}/config/ranger-opensearch-plugin
-	if [ ! -d $HCOMPONENT_CONF_DIR ]; then
-    echo "INFO: Creating $HCOMPONENT_CONF_DIR"
-    mkdir -p $HCOMPONENT_CONF_DIR
-    echo "INFO: Changing ownership of $HCOMPONENT_CONF_DIR to $CFG_OWNER_INF"
-    chown $CFG_OWNER_INF $HCOMPONENT_CONF_DIR
-  fi
+	echo "INFO: Creating $HCOMPONENT_CONF_DIR"
+	mkdir -p $HCOMPONENT_CONF_DIR
+	echo "INFO: Changing ownership of $HCOMPONENT_CONF_DIR to $CFG_OWNER_INF"
+	chown $CFG_OWNER_INF $HCOMPONENT_CONF_DIR
+    fi
 elif [ "${HCOMPONENT_NAME}" = "presto" ]; then
     HCOMPONENT_CONF_DIR=${HCOMPONENT_INSTALL_DIR}/etc
 elif [ "${HCOMPONENT_NAME}" = "trino" ]; then

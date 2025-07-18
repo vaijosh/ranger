@@ -477,7 +477,7 @@
 
 	<property>
 		<name>ranger.resource.lookup.timeout.value.in.ms</name>
-		<value>10000</value>
+		<value>1000</value>
 		<description></description>
 	</property>
 
@@ -514,10 +514,6 @@
 	</property>
 	<property>
 		<name>ranger.audit.elasticsearch.bootstrap.enabled</name>
-		<value>true</value>
-	</property>
-	<property>
-		<name>ranger.audit.opensearch.bootstrap.enabled</name>
 		<value>true</value>
 	</property>
 	<property>

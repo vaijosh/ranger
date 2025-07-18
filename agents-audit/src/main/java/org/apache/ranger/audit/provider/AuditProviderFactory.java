@@ -24,7 +24,6 @@ import org.apache.ranger.audit.destination.ElasticSearchAuditDestination;
 import org.apache.ranger.audit.destination.FileAuditDestination;
 import org.apache.ranger.audit.destination.HDFSAuditDestination;
 import org.apache.ranger.audit.destination.Log4JAuditDestination;
-import org.apache.ranger.audit.destination.OpenSearchAuditDestination;
 import org.apache.ranger.audit.destination.SolrAuditDestination;
 import org.apache.ranger.audit.provider.hdfs.HdfsAuditProvider;
 import org.apache.ranger.audit.provider.kafka.KafkaAuditProvider;
@@ -417,8 +416,6 @@ public class AuditProviderFactory {
                 provider = new SolrAuditDestination();
             } else if (providerName.equalsIgnoreCase("elasticsearch")) {
                 provider = new ElasticSearchAuditDestination();
-            } else if (providerName.equalsIgnoreCase("opensearch")) {
-                provider = new OpenSearchAuditDestination();
             } else if (providerName.equalsIgnoreCase("amazon_cloudwatch")) {
                 provider = new AmazonCloudWatchAuditDestination();
             } else if (providerName.equalsIgnoreCase("kafka")) {
