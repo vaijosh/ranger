@@ -481,7 +481,7 @@
         <include>org.apache.ranger:ranger-opensearch-plugin</include>
       </includes>
       <binaries>
-        <outputDirectory>ews/webapp/WEB-INF/classes/ranger-plugins/opensearch</outputDirectory>
+        <outputDirectory>/ews/webapp/WEB-INF/classes/ranger-plugins/opensearch</outputDirectory>
         <includeDependencies>true</includeDependencies>
         <unpack>false</unpack>
         <directoryMode>755</directoryMode>
